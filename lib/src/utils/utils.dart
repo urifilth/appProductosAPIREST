@@ -1,5 +1,7 @@
 
 
+import 'package:flutter/material.dart';
+
 bool isNumeric( String s ){
 
   if(s.isEmpty){
@@ -9,4 +11,22 @@ bool isNumeric( String s ){
 
   return ( n == null ) ? false : true;
 
+}
+
+void mostrarAlerta(BuildContext context, String mensaje) {
+  showDialog(
+    context: context, 
+    builder: ( context ){
+      return AlertDialog(
+        title: Text('¡Información incorrecta!'),
+        content: Text('Usuario o contraseña incorrecto.'),
+        actions: <Widget>[
+          FlatButton(
+            child: Text('Ok'),
+            onPressed: () => Navigator.of(context).pop(), 
+          )
+        ],
+      );
+    }
+  );
 }
